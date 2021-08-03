@@ -9,9 +9,12 @@ namespace Blog_Project_MVC.Controllers
     public class BlogController : Controller
     {
         // GET: Blog
+        newdbEntities nd = new newdbEntities();
         public ActionResult Index()
         {
-            return View();
+            var blogsdetails = nd.Blogs.ToList();
+
+            return View(blogsdetails);
         }
 
         public ActionResult UploadBlog()
@@ -22,13 +25,30 @@ namespace Blog_Project_MVC.Controllers
         [HttpPost]
         public ActionResult UploadBlog(Blog bg)
         {
-
-
-            newdbEntities nd = new newdbEntities();
             nd.Blogs.Add(bg);
             nd.SaveChanges();
             ViewBag.message = "Blog Details Are Saves Successfully...";
             return View();
+        }
+
+
+        public ActionResult Food()
+        {
+            var foodarticle = nd.Blogs.Where(x => x.BCategory == "Food");
+            return View(foodarticle);
+        }
+
+        public ActionResult Sports()
+        {
+            var sportsarticle = nd.Blogs.Where(x => x.BCategory == "Sports");
+            return View(sportsarticle);
+        }
+
+
+        public ActionResult Movies()
+        {
+            var moviesarticle = nd.Blogs.Where(x => x.BCategory == "Movies");
+            return View(moviesarticle);
         }
     }
 }
