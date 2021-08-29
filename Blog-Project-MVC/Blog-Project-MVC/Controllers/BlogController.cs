@@ -12,7 +12,7 @@ namespace Blog_Project_MVC.Controllers
         newdbEntities nd = new newdbEntities();
         public ActionResult Index()
         {
-            var blogsdetails = nd.Blogs.ToList();
+            var blogsdetails = nd.Blogs.ToList().OrderByDescending(x=>x.Bid);
 
             return View(blogsdetails);
         }
@@ -50,5 +50,11 @@ namespace Blog_Project_MVC.Controllers
             var moviesarticle = nd.Blogs.Where(x => x.BCategory == "Movies");
             return View(moviesarticle);
         }
+
+        public ActionResult myfirstblog()
+        {
+            return View();
+        }
+
     }
 }

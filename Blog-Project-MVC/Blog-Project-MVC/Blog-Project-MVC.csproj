@@ -211,6 +211,7 @@
     <Content Include="Views\Blog\Food.cshtml" />
     <Content Include="Views\Blog\Sports.cshtml" />
     <Content Include="Views\Blog\Movies.cshtml" />
+    <Content Include="Views\Blog\myfirstblog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
